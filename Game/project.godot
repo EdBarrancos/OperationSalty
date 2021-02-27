@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "PlayerState",
+"class": "PlayerIdleState",
+"language": "GDScript",
+"path": "res://Player/Code/PlayerStates/PlayerIdleState.gd"
+}, {
+"base": "PlayerState",
+"class": "PlayerRunState",
+"language": "GDScript",
+"path": "res://Player/Code/PlayerStates/PlayerRunState.gd"
+}, {
 "base": "Reference",
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://Player/Code/PlayerState.gd"
 } ]
 _global_script_class_icons={
+"PlayerIdleState": "",
+"PlayerRunState": "",
 "PlayerState": ""
 }
 
