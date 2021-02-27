@@ -1,3 +1,5 @@
+extends Node
+
 class_name PlayerState
 
 # Superclass (faux interface) common to all finite state machine / pushdown automata.
@@ -6,7 +8,7 @@ var player
 var debugState
 
 # Return the unique string name of the state. Must be overridden.
-func getName():
+func get_name():
 	assert(false)
 
 # Handle any transitions into this state. Subclasses should first chain to this method.
@@ -15,7 +17,7 @@ func enter(player, debugState):
 	self.debugState = debugState
 
 # Exit the current state, enter a new one.
-func setState(state):
+func set_state(state):
 	player.state.exit()
 	player.state.queue_free()
 	player.state = state
@@ -23,7 +25,7 @@ func setState(state):
 	player.add_child(state)
 
 # Handle input events.
-func getInput():
+func get_input():
 	pass
 
 func _physics_process(delta):

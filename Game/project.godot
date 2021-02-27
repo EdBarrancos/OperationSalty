@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Code/PlayerStates/PlayerRunState.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://Player/Code/PlayerState.gd"
