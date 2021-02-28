@@ -1,18 +1,19 @@
 extends PlayerState
 
-class_name PlayerRunState
+class_name PlayerFallState
 
+
+var PlayerRunState  = load("res://Player/Code/PlayerStates/PlayerRunState.gd")
 var PlayerIdleState = load("res://Player/Code/PlayerStates/PlayerIdleState.gd")
+var PlayerJumpState = load("res://Player/Code/PlayerStates/PlayerJumpState.gd")
 
 func get_name():
-	return "PlayerRunState"
-
-
+	return "PlayerFallState"
+	
+	
 func enter(player, debugState):
 	.enter(player, debugState)
 	if debugState: print(get_name())
-	
-	player.reset_jumps()
 
 
 func get_input():
@@ -23,15 +24,14 @@ func get_input():
 		player.turn_left()
 		player.set_speedX(-player.get_acellX()*Input.get_action_strength("LEFT"), player.get_maxVelocityX())
 	else:
-		player.state.set_state(PlayerIdleState.new())
 		player.set_speedX(player.get_decellX(), 0, false, true)
 		
 	if Input.is_action_just_pressed("JUMP"): player.jump()
-	
+
 
 func _physics_process(_delta):
 	#State Changes
-	if !player.is_on_floor(): player.state.set_state(PlayerFallState.new())
+	if player.is_on_floor(): player.state.set_state(PlayerIdleState.new())
 	
 	player.apply_gravity_player()
 	get_input()

@@ -13,6 +13,8 @@ func get_name():
 func enter(player, debugState):
 	.enter(player, debugState)
 	if debugState: print(get_name())
+	
+	player.reset_jumps()
 
 
 func get_input():
@@ -23,9 +25,15 @@ func get_input():
 		player.turn_left()
 		player.state.set_state(PlayerRunState.new())
 	else: player.set_speedX( player.get_decellX(), 0, false, true)
+	
+	if Input.is_action_just_pressed("JUMP"): player.jump()
 
 
 func _physics_process(_delta):
+	#State Changes
+	if !player.is_on_floor(): player.state.set_state(PlayerFallState.new())
+	
+	player.apply_gravity_player()
 	get_input()
 	player.move_player()
 

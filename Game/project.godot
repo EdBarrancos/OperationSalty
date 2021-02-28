@@ -10,9 +10,19 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "PlayerState",
+"class": "PlayerFallState",
+"language": "GDScript",
+"path": "res://Player/Code/PlayerStates/PlayerFallState.gd"
+}, {
+"base": "PlayerState",
 "class": "PlayerIdleState",
 "language": "GDScript",
 "path": "res://Player/Code/PlayerStates/PlayerIdleState.gd"
+}, {
+"base": "PlayerState",
+"class": "PlayerJumpState",
+"language": "GDScript",
+"path": "res://Player/Code/PlayerStates/PlayerJumpState.gd"
 }, {
 "base": "PlayerState",
 "class": "PlayerRunState",
@@ -25,7 +35,9 @@ _global_script_classes=[ {
 "path": "res://Player/Code/PlayerState.gd"
 } ]
 _global_script_class_icons={
+"PlayerFallState": "",
 "PlayerIdleState": "",
+"PlayerJumpState": "",
 "PlayerRunState": "",
 "PlayerState": ""
 }

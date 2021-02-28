@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var state
-export var debug = true
+export var debug = false
 var PlayerIdleState = load("res://Player/Code/PlayerStates/PlayerIdleState.gd")
 
 
@@ -13,6 +13,16 @@ var velocity = Vector2.ZERO
 export var acellX = 100
 export var maxVelocityX = 250
 export var decellX = 0.5
+
+#Vertical Movement
+export var grav  = 10
+export var maxVelocityY = 100
+export var jumpForce = -200
+export var maxJumpFrames = 15
+var jumpedFrames = 0
+export var maxJumps = 1
+var jumps = maxJumps + 1
+
 
 
 #Components
@@ -63,6 +73,48 @@ func set_maxVelocityX(newMaxVelocityX):
 	maxVelocityX = newMaxVelocityX
 	return maxVelocityX
 	
+#grav
+func get_grav(): return grav
+func set_grav(newGrav):
+	grav = newGrav
+	return grav
+	
+#maxVelocityY
+func get_maxVelocityY(): return maxVelocityY
+func set_maxVelocityY(newMaxVelocityY):
+	maxVelocityY = newMaxVelocityY
+	return maxVelocityY
+	
+#jumpForce
+func get_jumpForce(): return jumpForce
+func set_jumpForce(newJumpForce):
+	jumpForce = newJumpForce
+	return jumpForce
+	
+#maxJumpFrames
+func get_maxJumpFrames(): return maxJumpFrames
+func set_maxJumpFrames(newMaxJumpFrames):
+	maxJumpFrames = newMaxJumpFrames
+	return maxJumpFrames
+	
+#jumpedFrames
+func get_jumpedFrames(): return jumpedFrames
+func set_jumpedFrames(newJumpedFrames):
+	jumpedFrames = newJumpedFrames
+	return jumpedFrames
+	
+#maxJumps
+func get_maxJumps(): return maxJumps
+func set_maxJumps(newMaxJumps):
+	maxJumps = newMaxJumps
+	return maxJumps
+	
+#jumps
+func get_jumps(): return jumps
+func set_jumps(newJumps):
+	jumps = newJumps
+	return jumps
+	
 #sprite
 func get_sprite(): return sprite
 func set_sprite(newSprite): 
@@ -97,7 +149,6 @@ func _ready():
 func _physics_process(delta):
 	# Update the current state; handle switching.
 	state.call("_physics_process", delta)
-	print(velocity)
 
 ############
 ##Movement##
@@ -105,6 +156,29 @@ func _physics_process(delta):
 
 func move_player():
 	set_velocity(move_and_slide(get_velocity(), get_UP()))
+	
+	
+func apply_gravity_player(multiplier=1):
+	set_speedY(grav*multiplier, maxVelocityY*multiplier)
+	
+	
+func jump(fallthrough=false):
+	print(jumps)
+	if !fallthrough:
+		if jumps:
+			jumps -= 1
+			set_speedY(jumpForce, 0, false)
+			state.set_state(PlayerJumpState.new())
+	else:
+		set_speedY(jumpForce)
+		jumpedFrames += 1
+		if jumpedFrames >= maxJumpFrames:
+			reset_jumped_frames()
+			state.set_state(PlayerFallState.new())
+		
+				
+func reset_jumps(): set_jumps(maxJumps + 1)
+func reset_jumped_frames(): set_jumpedFrames(0)
 	
 	
 func set_speedX(value, maxValue=0, adding=true, gradual=false):

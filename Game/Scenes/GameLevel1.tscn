@@ -1,25 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player/Art/Player.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 59.0515, 15.246 )
+[ext_resource path="res://TileSets/ProtoTile.tres" type="TileSet" id=2]
 
 [node name="GameLevel1" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 2.20766, 32.9277 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
-scale = Vector2( 7.34022, 0.950338 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2.91353, -8.47571 )
+position = Vector2( -0.33647, -41.7257 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458735, 0, 0, -458732, 0, 0, -458731, 0, 0, -458730, 0, 0, -458729, 0, 0, -327694, 0, 0, -393199, 0, 0, -327663, 0, 0, -262127, 0, 0, -196591, 0, 0, -65548, 0, 0, -65547, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131055, 0, 0, 8, 0, 0, 65544, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 524267, 0, 0, 524268, 0, 0, 524269, 0, 0, 524270, 0, 0, 524271, 0, 0, 524272, 0, 0, 524273, 0, 0, 524274, 0, 0, 524275, 0, 0, 524276, 0, 0, 524277, 0, 0, 524278, 0, 0, 524279, 0, 0, 524280, 0, 0, 524281, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0 )
