@@ -4,7 +4,8 @@ class_name PlayerIdleState
 
 
 var PlayerRunState  = load("res://Player/Code/PlayerStates/PlayerRunState.gd")
-
+var PlayerFireplaceState = load("res://Player/Code/PlayerStates/PlayerFireplaceState.gd")
+var PlayerFallState = load("res://Player/Code/PlayerStates/PlayerFallState.gd")
 
 func get_name():
 	return "PlayerIdleState"
@@ -27,6 +28,8 @@ func get_input():
 	else: player.set_speedX( player.get_decellX(), 0, false, true)
 	
 	if Input.is_action_just_pressed("JUMP"): player.jump()
+	
+	if player.get_fireplace() and Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerFireplaceState.new())
 
 
 func _physics_process(_delta):

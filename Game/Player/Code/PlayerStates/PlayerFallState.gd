@@ -27,6 +27,8 @@ func get_input():
 		player.set_speedX(player.get_decellX(), 0, false, true)
 		
 	if Input.is_action_just_pressed("JUMP"): player.jump()
+	
+	if player.get_fireplace() and Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerFireplaceState.new())
 
 
 func _physics_process(_delta):

@@ -24,6 +24,9 @@ export var maxJumps = 1
 var jumps = maxJumps + 1
 
 
+#Interaction
+var fireplace = false
+
 
 #Components
 onready var sprite = $PlayerSprite
@@ -115,6 +118,12 @@ func set_jumps(newJumps):
 	jumps = newJumps
 	return jumps
 	
+#fireplace
+func get_fireplace(): return fireplace
+func set_fireplace(newFireplace):
+	fireplace = newFireplace
+	return fireplace
+	
 #sprite
 func get_sprite(): return sprite
 func set_sprite(newSprite): 
@@ -149,6 +158,14 @@ func _ready():
 func _physics_process(delta):
 	# Update the current state; handle switching.
 	state.call("_physics_process", delta)
+	
+
+func _on_Fireplace_body_entered(body):
+	if body == self: fireplace = true
+
+
+func _on_Fireplace_body_exited(body):
+	if body == self: fireplace = false
 
 ############
 ##Movement##
@@ -163,7 +180,6 @@ func apply_gravity_player(multiplier=1):
 	
 	
 func jump(fallthrough=false):
-	print(jumps)
 	if !fallthrough:
 		if jumps:
 			jumps -= 1
@@ -215,3 +231,7 @@ func turn_right():
 
 func turn_left():
 	if not is_sprite_flipped(): flip_sprite()
+
+
+
+

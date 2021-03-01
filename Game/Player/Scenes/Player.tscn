@@ -22,6 +22,5 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2( 0, -32 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
