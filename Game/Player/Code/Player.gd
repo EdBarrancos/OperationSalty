@@ -10,15 +10,15 @@ const UP = Vector2(0, -1)
 var velocity = Vector2.ZERO
 
 #Horizontal Movement
-export var acellX = 100
-export var maxVelocityX = 250
+export var acellX = 25
+export var maxVelocityX = 185
 export var decellX = 0.5
 
 #Vertical Movement
-export var grav  = 10
-export var maxVelocityY = 100
-export var jumpForce = -200
-export var maxJumpFrames = 15
+export var grav  = 17
+export var maxVelocityY = 200
+export var jumpForce = -90
+export var maxJumpFrames = 20
 var jumpedFrames = 0
 export var maxJumps = 1
 var jumps = maxJumps + 1

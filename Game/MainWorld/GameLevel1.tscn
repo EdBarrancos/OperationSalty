@@ -14,12 +14,6 @@ position = Vector2( -387.541, 103.344 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -0.33647, -41.7257 )
-acellX = 25
-maxVelocityX = 185
-grav = 17
-maxVelocityY = 200
-jumpForce = -90
-maxJumpFrames = 20
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )

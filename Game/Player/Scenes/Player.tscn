@@ -12,8 +12,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-grav = 15
-maxVelocityY = 150
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
