@@ -33,6 +33,7 @@ onready var sprite = $PlayerSprite
 onready var camera = $PlayerCamera
 onready var collider = $PlayerCollider
 onready var soundEffects = $PlayerSoundEffects
+onready var countDownTimer = $CountDown/TimerLabel
 
 ################################
 ##Variable Setters and Getters##
@@ -148,6 +149,13 @@ func get_soundEffects(): return soundEffects
 func set_soundEffects(newSoundEffects):
 	soundEffects = newSoundEffects
 	soundEffects
+	
+	
+#countDownTimer
+func get_countDownTimer(): return countDownTimer
+func set_countDownTimer(newCountDownTimer):
+	countDownTimer = newCountDownTimer
+	return countDownTimer
 
 ####################
 ##Engine Functions##
@@ -159,15 +167,13 @@ func _ready():
 	state.enter(self, debug)
 	add_child(state)
 	
-	print(Global.masterVolume)
-	print(Global.soundEffectVolume)
-	
 	
 #input and changing state is handled by the states themselves
 # Let the current state handle the processing logic; also handle the changing of states.
 func _physics_process(delta):
 	# Update the current state; handle switching.
 	state.call("_physics_process", delta)
+	countDownTimer.update_label()
 	
 
 func _on_Fireplace_body_entered(body):
