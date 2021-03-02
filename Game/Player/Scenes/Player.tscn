@@ -38,7 +38,6 @@ bus = "SoundEffects"
 
 [node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="PlayerSoundEffects"]
 stream = ExtResource( 5 )
-autoplay = true
 bus = "SoundEffects"
 
 [node name="LandSoundEffect" type="AudioStreamPlayer2D" parent="PlayerSoundEffects"]

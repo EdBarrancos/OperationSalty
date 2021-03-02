@@ -159,6 +159,9 @@ func _ready():
 	state.enter(self, debug)
 	add_child(state)
 	
+	print(Global.masterVolume)
+	print(Global.soundEffectVolume)
+	
 	
 #input and changing state is handled by the states themselves
 # Let the current state handle the processing logic; also handle the changing of states.
