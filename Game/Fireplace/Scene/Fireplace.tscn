@@ -18,3 +18,4 @@ shape = SubResource( 1 )
 stream = ExtResource( 2 )
 autoplay = true
 attenuation = 14.9285
+bus = "SoundEffects"
