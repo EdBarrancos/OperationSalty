@@ -35,7 +35,7 @@ func get_input():
 
 func _physics_process(_delta):
 	#State Changes
-	if player.is_on_floor():  player.state.set_state(PlayerIdleState.new())
+	if player.is_on_floor():  player.land()
 	
 	player.apply_gravity_player()
 	get_input()

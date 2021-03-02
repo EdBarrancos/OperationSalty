@@ -256,5 +256,12 @@ func walk_sound_effect(): soundEffects.play_walk_sound_effect()
 func stop_walk_sound_effect(): soundEffects.stop_walk_sound_effect()
 
 
+func land_sound_effect(): soundEffects.play_land_sound_effect()
 
+##################
+##State Handling##
+##################
 
+func land():
+	state.set_state(PlayerIdleState.new())
+	land_sound_effect()

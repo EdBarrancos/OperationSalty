@@ -4,18 +4,31 @@ extends Node2D
 onready var jumpSoundEffect = $JumpSoundEffect
 onready var walkSoundEffect = $WalkSoundEffect
 onready var walkSoundEffectTimer = $WalkSoundEffect/WalkSoundTimer
+onready var landSoundEffect = $LandSoundEffect
 
 
 func _ready():
 	pass # Replace with function body.
 
 
+######################
+##Play Sound Effects##
+######################
+
 func play_jump_sound_effect(): jumpSoundEffect.play()
-func play_walk_sound_effect(): 
-	walkSoundEffect.play()
-	walkSoundEffectTimer.start()
-func stop_walk_sound_effect(): walkSoundEffectTimer.stop()
+
+
+func play_walk_sound_effect(): walkSoundEffect.play()
 	
+
+func play_land_sound_effect(): landSoundEffect.play()
 	
-func _on_Timer_timeout():
-	play_walk_sound_effect()
+######################
+##Stop Sound Effects##
+######################
+
+func stop_walk_sound_effect(): walkSoundEffect.stop()
+	
+####################
+##Signal treatment##
+####################

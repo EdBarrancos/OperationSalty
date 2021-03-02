@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Running On Dirt.wav-44c886c11e9868f3d4848ae17d383696.sample"
+
+[deps]
+
+source_file="res://Player/Sound/Running On Dirt.wav"
+dest_files=[ "res://.import/Running On Dirt.wav-44c886c11e9868f3d4848ae17d383696.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
