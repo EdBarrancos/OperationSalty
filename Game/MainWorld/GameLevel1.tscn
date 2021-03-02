@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TileSets/ProtoTile.tres" type="TileSet" id=2]
-[ext_resource path="res://Fireplace/Fireplace.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fireplace/Scene/Fireplace.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Crown/Crown.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MainWorld/GameLevel1.gd" type="Script" id=6]
 

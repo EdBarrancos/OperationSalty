@@ -13,6 +13,7 @@ func enter(player, debugState):
 	if debugState: print(get_name())
 	
 	player.reset_jumps()
+	player.walk_sound_effect()
 
 
 func get_input():
@@ -31,6 +32,10 @@ func get_input():
 	if player.get_fireplace() and Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerFireplaceState.new())
 	
 
+func exit():
+	player.stop_walk_sound_effect()
+	
+	
 func _physics_process(_delta):
 	#State Changes
 	if !player.is_on_floor(): player.state.set_state(PlayerFallState.new())

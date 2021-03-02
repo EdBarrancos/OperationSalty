@@ -15,6 +15,7 @@ func enter(player, debugState):
 	if debugState: print(get_name())
 	
 	player.reset_jumped_frames()
+	player.jump_sound_effect()
 
 
 func get_input():

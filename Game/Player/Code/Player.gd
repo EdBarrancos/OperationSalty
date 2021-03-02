@@ -32,6 +32,7 @@ var fireplace = false
 onready var sprite = $PlayerSprite
 onready var camera = $PlayerCamera
 onready var collider = $PlayerCollider
+onready var soundEffects = $PlayerSoundEffects
 
 ################################
 ##Variable Setters and Getters##
@@ -142,6 +143,12 @@ func set_collider(newCollider):
 	collider = newCollider
 	return collider
 
+#soundEffects
+func get_soundEffects(): return soundEffects
+func set_soundEffects(newSoundEffects):
+	soundEffects = newSoundEffects
+	soundEffects
+
 ####################
 ##Engine Functions##
 ####################
@@ -223,14 +230,30 @@ func set_speedY(value, maxValue=0, adding=true, gradual=false):
 ######################
 
 func is_sprite_flipped(): return sprite.flip_h
-	
+
+
 func flip_sprite(): sprite.flip_h = not sprite.flip_h
+
 
 func turn_right():
 	if is_sprite_flipped(): flip_sprite()
 
+
 func turn_left():
 	if not is_sprite_flipped(): flip_sprite()
+	
+
+##################
+##Sound Handling##
+##################
+
+func jump_sound_effect(): soundEffects.play_jump_sound_effect()
+
+
+func walk_sound_effect(): soundEffects.play_walk_sound_effect()
+
+
+func stop_walk_sound_effect(): soundEffects.stop_walk_sound_effect()
 
 
 
