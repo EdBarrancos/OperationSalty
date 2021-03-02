@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Crown.png-be75209a823601ace4e12403319a5d4f.stex"
+path="res://.import/Fireplace.png-1862a6e572bed57d2d814c2f42dd409e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crown.png"
-dest_files=[ "res://.import/Crown.png-be75209a823601ace4e12403319a5d4f.stex" ]
+source_file="res://Crown/Fireplace.png"
+dest_files=[ "res://.import/Fireplace.png-1862a6e572bed57d2d814c2f42dd409e.stex" ]
 
 [params]
 
