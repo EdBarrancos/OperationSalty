@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FireplaceSoundEffect.wav-c369c269ffd3eaa15944d81cfab0895c.sample"
+
+[deps]
+
+source_file="res://Fireplace/Sound/FireplaceSoundEffect.wav"
+dest_files=[ "res://.import/FireplaceSoundEffect.wav-c369c269ffd3eaa15944d81cfab0895c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

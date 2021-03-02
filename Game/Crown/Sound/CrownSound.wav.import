@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CrownSound.wav-1122b4e2fc8129470be7e989b0e83a36.sample"
+
+[deps]
+
+source_file="res://Crown/Sound/CrownSound.wav"
+dest_files=[ "res://.import/CrownSound.wav-1122b4e2fc8129470be7e989b0e83a36.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
