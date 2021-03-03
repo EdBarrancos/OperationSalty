@@ -25,4 +25,5 @@ position = Vector2( -0.33647, -41.7257 )
 position = Vector2( 214.532, 85.2253 )
 [connection signal="body_entered" from="Fireplace" to="Player" method="_on_Fireplace_body_entered"]
 [connection signal="body_exited" from="Fireplace" to="Player" method="_on_Fireplace_body_exited"]
+[connection signal="defeat" from="Player" to="." method="_on_Player_defeat"]
 [connection signal="body_entered" from="Crown" to="." method="_on_Crown_body_entered"]

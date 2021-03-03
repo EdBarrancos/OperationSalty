@@ -4,6 +4,8 @@ var state
 export var debug = false
 var PlayerIdleState = load("res://Player/Code/PlayerStates/PlayerIdleState.gd")
 
+#Signals
+signal defeat
 
 #movement
 const UP = Vector2(0, -1)
@@ -182,6 +184,9 @@ func _on_Fireplace_body_entered(body):
 
 func _on_Fireplace_body_exited(body):
 	if body == self: fireplace = false
+	
+	
+func _on_Timer_timeout(): emit_signal("defeat")
 
 ############
 ##Movement##
@@ -274,3 +279,6 @@ func land_sound_effect(): soundEffects.play_land_sound_effect()
 func land():
 	state.set_state(PlayerIdleState.new())
 	land_sound_effect()
+
+
+

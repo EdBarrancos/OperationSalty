@@ -7,3 +7,6 @@ func _ready():
 
 func _on_Crown_body_entered(body):
 	if body == player: get_parent().switch_to_victory(self)
+
+
+func _on_Player_defeat(): get_parent().switch_to_defeat(self)

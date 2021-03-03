@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var victoryScene = load("res://Scenes/Victory.tscn")
+onready var defeatScene = load("res://Scenes/Defeat.tscn")
 onready var mainWorld = load("res://MainWorld/GameLevel1.tscn")
 onready var mainMenu = load("res://Scenes/MainMenu.tscn")
 
@@ -16,6 +17,10 @@ func add_scene_instance(scene):
 	var sceneInstance = scene.instance()
 	add_child(sceneInstance)
 	
+##############
+##High level##
+##############
+
 func switch_to_main_world(currentScene):
 	switch_scenes(currentScene, mainWorld)
 	
@@ -24,3 +29,6 @@ func switch_to_victory(currentScene):
 	
 func switch_to_mainMenu(currentScene):
 	switch_scenes(currentScene, mainMenu)
+	
+func switch_to_defeat(currentScene):
+	switch_scenes(currentScene, defeatScene)
