@@ -19,6 +19,7 @@ font_data = ExtResource( 8 )
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -0.891907 )
 script = ExtResource( 2 )
+maxVelocityX = 180
 maxVelocityY = 185
 jumpForce = -80
 
@@ -76,5 +77,5 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="CountDown/TimerLabel"]
-wait_time = 5.0
+wait_time = 60.0
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
