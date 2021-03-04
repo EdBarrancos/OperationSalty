@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Why am I even doing this.wav-dc7107fdd3d52ecf7a54ff02b011d34f.sample"
+
+[deps]
+
+source_file="res://Player/Sound/Dialogue/Why am I even doing this.wav"
+dest_files=[ "res://.import/Why am I even doing this.wav-dc7107fdd3d52ecf7a54ff02b011d34f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Art/PlayerCharacter.png" type="Texture" id=1]
 [ext_resource path="res://Player/Code/Player.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Player/Sound/Land.wav" type="AudioStream" id=6]
 [ext_resource path="res://Player/Code/TimerLabel.gd" type="Script" id=7]
 [ext_resource path="res://Fonts/BACKTO1982.TTF" type="DynamicFontData" id=8]
+[ext_resource path="res://Player/Code/PlayerDialogue.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.8148, 13.9035 )
@@ -80,4 +81,14 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="CountDown/TimerLabel"]
 wait_time = 60.0
+
+[node name="PlayerDialogue" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Dialogue" type="AudioStreamPlayer2D" parent="PlayerDialogue"]
+
+[node name="DialogueTimer" type="Timer" parent="PlayerDialogue"]
+one_shot = true
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
+[connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]
