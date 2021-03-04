@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/the heat of the bonfire is nice too.wav-756baf14872fec6d70b4b310dcd1177f.sample"
+
+[deps]
+
+source_file="res://Player/Sound/Dialogue/the heat of the bonfire is nice too.wav"
+dest_files=[ "res://.import/the heat of the bonfire is nice too.wav-756baf14872fec6d70b4b310dcd1177f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

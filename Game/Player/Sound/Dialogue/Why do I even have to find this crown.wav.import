@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Why do I even have to find this crown.wav-a5096a3594856cf60e36d6f0613c3f32.sample"
+
+[deps]
+
+source_file="res://Player/Sound/Dialogue/Why do I even have to find this crown.wav"
+dest_files=[ "res://.import/Why do I even have to find this crown.wav-a5096a3594856cf60e36d6f0613c3f32.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

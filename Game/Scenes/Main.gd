@@ -3,7 +3,7 @@ extends Node2D
 onready var victoryScene = load("res://Scenes/Victory.tscn")
 onready var defeatScene = load("res://Scenes/Defeat.tscn")
 onready var mainWorld = load("res://MainWorld/GameLevel1.tscn")
-onready var mainMenu = load("res://Scenes/MainMenu.tscn")
+onready var mainMenu = load("res://Scenes/Menus/MainMenu.tscn")
 
 func _ready():
 	pass
