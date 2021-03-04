@@ -20,6 +20,7 @@ font_data = ExtResource( 8 )
 position = Vector2( 0, -0.891907 )
 script = ExtResource( 2 )
 maxVelocityX = 180
+grav = 18
 maxVelocityY = 185
 jumpForce = -80
 
@@ -38,6 +39,7 @@ script = ExtResource( 4 )
 
 [node name="JumpSoundEffect" type="AudioStreamPlayer2D" parent="PlayerSoundEffects"]
 stream = ExtResource( 3 )
+volume_db = -4.0
 bus = "SoundEffects"
 
 [node name="WalkSoundEffect" type="AudioStreamPlayer2D" parent="PlayerSoundEffects"]

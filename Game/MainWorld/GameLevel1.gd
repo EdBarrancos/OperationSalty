@@ -10,3 +10,5 @@ func _on_Crown_body_entered(body):
 
 
 func _on_Player_defeat(): get_parent().switch_to_defeat(self)
+
+func is_player(object): return object == player

@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fireplace/Art/Fireplace.png" type="Texture" id=1]
 [ext_resource path="res://Fireplace/Sound/FireplaceSoundEffect.wav" type="AudioStream" id=2]
+[ext_resource path="res://Fireplace/Scene/Fireplace.gd" type="Script" id=3]
+[ext_resource path="res://Fireplace/Art/InteractionKey.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33.7588, 9.94233 )
+extents = Vector2( 45.8412, 11.2989 )
 
 [node name="Fireplace" type="Area2D"]
+script = ExtResource( 3 )
 
 [node name="FireplaceSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -19,3 +22,12 @@ stream = ExtResource( 2 )
 autoplay = true
 attenuation = 14.9285
 bus = "SoundEffects"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InteractionKeySprite" type="Sprite" parent="."]
+position = Vector2( 0, -13 )
+texture = ExtResource( 4 )
+[connection signal="body_entered" from="." to="." method="_on_Fireplace_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Fireplace_body_exited"]
