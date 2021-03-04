@@ -169,6 +169,9 @@ func _ready():
 	state.enter(self, debug)
 	add_child(state)
 	
+	#Set camera
+	camera.current = true
+	
 	
 #input and changing state is handled by the states themselves
 # Let the current state handle the processing logic; also handle the changing of states.
