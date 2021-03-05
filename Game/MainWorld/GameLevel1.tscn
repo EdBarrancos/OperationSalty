@@ -504,12 +504,14 @@ tile_data = PoolIntArray( -5111726, 0, 65537, -5111725, 0, 65539, -5046190, 0, 1
 position = Vector2( -90.2349, 57.5371 )
 
 [node name="Crown" parent="." instance=ExtResource( 4 )]
-position = Vector2( 949.769, -155.819 )
+position = Vector2( 951.779, -158.26 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( -200, -455 )
+transform = Transform2D( 1, 0, 0, 1, -200, -455 )
 
 [node name="SkyLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -200, -450 )
+visible = false
 motion_scale = Vector2( 0.3, 0.3 )
 __meta__ = {
 "_edit_group_": true
@@ -520,6 +522,7 @@ scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_left = -2000.0
 margin_top = -1300.0
 margin_right = 1700.0

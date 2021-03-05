@@ -101,6 +101,7 @@ one_shot = true
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 10 )
+energy = 1.5
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]

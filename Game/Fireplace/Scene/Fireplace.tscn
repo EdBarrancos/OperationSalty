@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fireplace/Art/Fireplace.png" type="Texture" id=1]
 [ext_resource path="res://Fireplace/Sound/FireplaceSoundEffect.wav" type="AudioStream" id=2]
 [ext_resource path="res://Fireplace/Scene/Fireplace.gd" type="Script" id=3]
 [ext_resource path="res://Fireplace/Art/InteractionKey.png" type="Texture" id=4]
+[ext_resource path="res://Player/Art/PlayerLight.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.8412, 11.2989 )
@@ -29,5 +30,11 @@ __meta__ = {
 [node name="InteractionKeySprite" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
 texture = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 5 )
+texture_scale = 0.43
+color = Color( 0.933333, 0.662745, 0.0235294, 1 )
+energy = 2.0
 [connection signal="body_entered" from="." to="." method="_on_Fireplace_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Fireplace_body_exited"]
