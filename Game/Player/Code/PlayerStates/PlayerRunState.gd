@@ -14,6 +14,7 @@ func enter(player, debugState):
 	
 	player.reset_jumps()
 	player.walk_sound_effect()
+	player.play_running_animation()
 
 
 func get_input():

@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Player/Art/PlayerCharacter.png" type="Texture" id=1]
+[ext_resource path="res://Player/Art/PlayerSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Player/Code/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/Sound/Jump16.wav" type="AudioStream" id=3]
 [ext_resource path="res://Player/Code/PlayerSoundEffects.gd" type="Script" id=4]
@@ -19,6 +19,41 @@ extents = Vector2( 5.8148, 13.9035 )
 size = 18
 font_data = ExtResource( 8 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Running"
+length = 0.8
+loop = true
+step = 0.06
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -0.891907 )
 script = ExtResource( 2 )
@@ -29,6 +64,8 @@ jumpForce = -80
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 17
+frame = 4
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -102,6 +139,11 @@ one_shot = true
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 10 )
 energy = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/Idle = SubResource( 3 )
+anims/Running = SubResource( 4 )
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]

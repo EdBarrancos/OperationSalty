@@ -3,6 +3,7 @@ extends Node
 #Volumes
 var masterVolume  = db2linear(AudioServer.get_bus_volume_db(0))
 var soundEffectVolume = db2linear(AudioServer.get_bus_volume_db(1))
+var dialogueVolume = db2linear(AudioServer.get_bus_volume_db(2))
 
 
 #######################
@@ -20,6 +21,11 @@ func get_soundEffectVolume(): return soundEffectVolume
 func set_soundEffectVolume(newSoundEffectVolume):
 	soundEffectVolume = newSoundEffectVolume
 	return soundEffectVolume
+	
+func get_dialogueVolume(): return dialogueVolume
+func set_dialogueVolume(newDialogueVolume):
+	dialogueVolume = newDialogueVolume
+	return dialogueVolume
 
 ####################
 ##Engine Functions##
@@ -40,3 +46,7 @@ func change_master_volume(value):
 func change_soundEffects_volume(value):
 	AudioServer.set_bus_volume_db(1, linear2db(value))
 	soundEffectVolume = value
+	
+func change_dialogue_volume(value):
+	AudioServer.set_bus_volume_db(2, linear2db(value))
+	dialogueVolume = value

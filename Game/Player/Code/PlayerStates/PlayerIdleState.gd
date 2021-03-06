@@ -16,6 +16,7 @@ func enter(player, debugState):
 	if debugState: print(get_name())
 	
 	player.reset_jumps()
+	player.play_idle_animation()
 
 
 func get_input():
@@ -29,7 +30,8 @@ func get_input():
 	
 	if Input.is_action_just_pressed("JUMP"): player.jump()
 	
-	if player.get_fireplace() and Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerFireplaceState.new())
+	if player.get_fireplace() and Input.is_action_just_pressed("INTERACT"): 
+		player.state.set_state(PlayerFireplaceState.new())
 
 
 func _physics_process(_delta):

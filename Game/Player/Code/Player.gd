@@ -36,6 +36,7 @@ onready var camera = $PlayerCamera
 onready var collider = $PlayerCollider
 onready var soundEffects = $PlayerSoundEffects
 onready var countDownTimer = $CountDown/TimerLabel
+onready var animationPlayer = $AnimationPlayer
 
 ################################
 ##Variable Setters and Getters##
@@ -259,6 +260,9 @@ func turn_right():
 func turn_left():
 	if not is_sprite_flipped(): flip_sprite()
 	
+func play_idle_animation(): animationPlayer.play("Idle")
+	
+func play_running_animation(): animationPlayer.play("Running")
 
 ##################
 ##Sound Handling##
