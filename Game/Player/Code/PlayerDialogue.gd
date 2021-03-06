@@ -21,7 +21,7 @@ func _ready():
 func _on_DialogueTimer_timeout():
 	if dialogueLines.size():
 		random.randomize()
-		var lineNbr = random.randi_range(0, dialogueLines.size() - 1)
+		var lineNbr = int(random.randf_range(0, dialogueLines.size() - 1))
 		#print(dialogueLines)
 		dialogueAudio.set_stream(load(pathToDialogueLines + "/" + dialogueLines[lineNbr]))
 		dialogueAudio.play()

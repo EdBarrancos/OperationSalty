@@ -3,7 +3,6 @@ extends Node2D
 
 onready var jumpSoundEffect = $JumpSoundEffect
 onready var walkSoundEffect = $WalkSoundEffect
-onready var walkSoundEffectTimer = $WalkSoundEffect/WalkSoundTimer
 onready var landSoundEffect = $LandSoundEffect
 
 
