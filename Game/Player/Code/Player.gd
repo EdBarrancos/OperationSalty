@@ -264,6 +264,10 @@ func play_idle_animation(): animationPlayer.play("Idle")
 	
 func play_running_animation(): animationPlayer.play("Running")
 
+func play_starSkyFadeIn_animation(): animationPlayer.play("StarSkyFadeIn")
+
+func play_starSkyFadeOut_animation():animationPlayer.play("StarSkyFadeOut")
+
 ##################
 ##Sound Handling##
 ##################

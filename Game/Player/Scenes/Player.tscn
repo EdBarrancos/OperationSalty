@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player/Art/PlayerSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Player/Code/Player.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Player/Code/PlayerDialogue.gd" type="Script" id=9]
 [ext_resource path="res://Player/Art/PlayerLight.png" type="Texture" id=10]
 [ext_resource path="res://Player/Art/CountdownLight.png" type="Texture" id=11]
+[ext_resource path="res://Player/Art/StarySky.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.8148, 13.9035 )
@@ -54,6 +55,38 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "StarSkyFadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "StarSkyFadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.705882 ), Color( 1, 1, 1, 0.341176 ), Color( 1, 1, 1, 0.12549 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -0.891907 )
 script = ExtResource( 2 )
@@ -62,10 +95,15 @@ grav = 18
 maxVelocityY = 185
 jumpForce = -80
 
+[node name="Stars" type="Node2D" parent="."]
+
+[node name="StarSkySprite" type="Sprite" parent="Stars"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 12 )
+
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 17
-frame = 4
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -144,6 +182,8 @@ energy = 1.5
 autoplay = "Idle"
 anims/Idle = SubResource( 3 )
 anims/Running = SubResource( 4 )
+anims/StarSkyFadeIn = SubResource( 5 )
+anims/StarSkyFadeOut = SubResource( 6 )
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]
