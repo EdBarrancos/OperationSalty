@@ -28,6 +28,8 @@ var jumps = maxJumps + 1
 
 #Interaction
 var fireplace = false
+enum fireplaceLocations {MIDDLE, RIGHT, LEFT}
+var fireplaceLocation = fireplaceLocations.MIDDLE
 
 
 #Components
@@ -37,6 +39,7 @@ onready var collider = $PlayerCollider
 onready var soundEffects = $PlayerSoundEffects
 onready var countDownTimer = $CountDown/TimerLabel
 onready var animationPlayer = $AnimationPlayer
+onready var stars = $Stars
 
 ################################
 ##Variable Setters and Getters##
@@ -129,6 +132,12 @@ func set_fireplace(newFireplace):
 	fireplace = newFireplace
 	return fireplace
 	
+#fireplaceLocation
+func get_fireplaceLocation(): return fireplaceLocation
+func set_fireplaceLocation(newFireplaceLocation):
+	fireplaceLocation = newFireplaceLocation
+	return fireplaceLocation
+	
 #sprite
 func get_sprite(): return sprite
 func set_sprite(newSprite): 
@@ -183,10 +192,28 @@ func _physics_process(delta):
 	
 
 func _on_Fireplace_body_entered(body):
-	if body == self: fireplace = true
+	if body == self: 
+		fireplace = true
+		set_fireplaceLocation(fireplaceLocations.MIDDLE)
 
 
 func _on_Fireplace_body_exited(body):
+	if body == self: fireplace = false
+	
+func _on_FireplaceRight_body_entered(body):
+	if body == self: 
+		fireplace = true
+		set_fireplaceLocation(fireplaceLocations.RIGHT)
+	
+func _on_FireplaceRight_body_exited(body):
+	if body == self: fireplace = false
+	
+func _on_FireplaceLeft_body_entered(body):
+	if body == self: 
+		fireplace = true
+		set_fireplaceLocation(fireplaceLocations.LEFT)
+	
+func _on_FireplaceLeft_body_exited(body):
 	if body == self: fireplace = false
 	
 	
@@ -290,6 +317,13 @@ func land_sound_effect(): soundEffects.play_land_sound_effect()
 func land():
 	state.set_state(PlayerIdleState.new())
 	land_sound_effect()
+	
+func star_interaction_start():
+	state.set_state(PlayerFireplaceState.new())
+	stars.start_interaction(fireplaceLocation)
+	
+func star_interaction_finished():
+	state.set_state(PlayerIdleState.new())
 
 
 

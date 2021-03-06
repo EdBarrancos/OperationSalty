@@ -15,7 +15,8 @@ func enter(player, debugState):
 
 func get_input():
 	#Temporary
-	if Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerIdleState.new())
+	#if Input.is_action_just_pressed("INTERACT"): player.state.set_state(PlayerIdleState.new())
+	pass
 
 
 func _physics_process(_delta):
