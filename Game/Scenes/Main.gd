@@ -6,13 +6,19 @@ onready var mainWorld = load("res://MainWorld/GameLevel1.tscn")
 onready var mainMenu = load("res://Scenes/Menus/MainMenu.tscn")
 onready var optionsMenu = load("res://Scenes/Menus/OptionsMenu.tscn")
 
+onready var music = $Music
+
 func _ready():
 	pass
+	
+func reset_music_position(): music.position = Vector2(0,0)
+func change_music_position(value): music.position = value
 
 
 func switch_scenes(currentScene, newScene):
 	currentScene.queue_free()
 	add_scene_instance(newScene)
+	reset_music_position()
 	
 func add_scene_instance(scene):
 	var sceneInstance = scene.instance()
@@ -36,3 +42,4 @@ func switch_to_defeat(currentScene):
 	
 func switch_to_options_menu(currentScene):
 	switch_scenes(currentScene, optionsMenu)
+	

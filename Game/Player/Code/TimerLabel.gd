@@ -5,7 +5,7 @@ onready var timer = $Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#timer.start()
+	timer.start()
 	get_font("font").font_data.antialiased = false
 	get_font("font").use_filter = true
 	get_font("font").use_filter = false

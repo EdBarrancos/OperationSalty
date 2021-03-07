@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/music_zapsplat_game_music_mystery_underscore_airy_dark_tension_006.wav-61ccb6633de3fb0b3fa96cd04b3d80b7.sample"
+
+[deps]
+
+source_file="res://Assets/music_zapsplat_game_music_mystery_underscore_airy_dark_tension_006.wav"
+dest_files=[ "res://.import/music_zapsplat_game_music_mystery_underscore_airy_dark_tension_006.wav-61ccb6633de3fb0b3fa96cd04b3d80b7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

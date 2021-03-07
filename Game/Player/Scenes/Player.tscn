@@ -21,7 +21,7 @@ extents = Vector2( 5.8148, 13.9035 )
 size = 18
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Fall"
 length = 0.2
 loop = true
@@ -38,8 +38,7 @@ tracks/0/keys = {
 "values": [ 15, 16 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -55,8 +54,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Jump"
+[sub_resource type="Animation" id=5]
 length = 0.03
 step = 0.01
 tracks/0/type = "value"
@@ -72,7 +70,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 step = 0.06
@@ -89,7 +87,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
@@ -104,7 +102,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
@@ -191,7 +189,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="CountDown/TimerLabel"]
-wait_time = 60.0
+wait_time = 120.0
 
 [node name="Light2D" type="Light2D" parent="CountDown"]
 position = Vector2( 126, -71.1081 )
@@ -214,12 +212,12 @@ energy = 1.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Fall = SubResource( 8 )
-anims/Idle = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Running = SubResource( 5 )
-anims/StarSkyFadeIn = SubResource( 6 )
-anims/StarSkyFadeOut = SubResource( 7 )
+anims/Fall = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Running = SubResource( 6 )
+anims/StarSkyFadeIn = SubResource( 7 )
+anims/StarSkyFadeOut = SubResource( 8 )
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]

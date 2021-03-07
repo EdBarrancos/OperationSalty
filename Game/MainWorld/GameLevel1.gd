@@ -16,6 +16,9 @@ func _ready():
 	crown.start_animation()
 	
 	
+func _process(delta):
+	get_parent().change_music_position(player.position)
+	
 
 func _on_Crown_body_entered(body):
 	if body == player: get_parent().switch_to_victory(self)
