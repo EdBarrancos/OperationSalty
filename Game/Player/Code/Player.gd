@@ -291,6 +291,10 @@ func play_idle_animation(): animationPlayer.play("Idle")
 	
 func play_running_animation(): animationPlayer.play("Running")
 
+func play_jump_animation(): animationPlayer.play("Jump")
+
+func play_fall_animation(): animationPlayer.play("Fall")
+
 func play_starSkyFadeIn_animation(): animationPlayer.play("StarSkyFadeIn")
 
 func play_starSkyFadeOut_animation():animationPlayer.play("StarSkyFadeOut")

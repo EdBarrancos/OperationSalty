@@ -14,6 +14,8 @@ func get_name():
 func enter(player, debugState):
 	.enter(player, debugState)
 	if debugState: print(get_name())
+	
+	player.play_fall_animation()
 
 
 func get_input():
