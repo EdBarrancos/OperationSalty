@@ -155,11 +155,11 @@ volume_db = -7.298
 bus = "Dialogue"
 
 [node name="Timer" type="Timer" parent="Menu/VBoxContainer/HBoxContainer/CenterContainer/Poltergeist"]
-wait_time = 5.0
+wait_time = 10.0
 
 [node name="MarginContainer2" type="TextureRect" parent="Menu/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_left = 61.0
-margin_top = 50.0
+margin_top = 25.0
 margin_right = 77.0
 margin_bottom = 57.0
 texture = ExtResource( 3 )
