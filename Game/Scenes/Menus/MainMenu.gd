@@ -4,9 +4,12 @@ onready var camera = $Camera2D
 onready var playButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Play
 onready var optionsButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Options
 onready var exitButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Exit
+onready var label = $Label
 
 func _ready():
-	camera.current = true
+	playButton.get_font("font").font_data.antialiased = false
+	playButton.get_font("font").use_filter = true
+	playButton.get_font("font").use_filter = false
 	fix_antialiasing(playButton)
 	fix_antialiasing(optionsButton)
 	fix_antialiasing(exitButton)

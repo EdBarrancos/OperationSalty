@@ -4,8 +4,8 @@ extends Node
 var masterVolume  = db2linear(AudioServer.get_bus_volume_db(0))
 var soundEffectVolume = db2linear(AudioServer.get_bus_volume_db(1))
 var dialogueVolume = db2linear(AudioServer.get_bus_volume_db(2))
-var ambientSound = db2linear(AudioServer.get_bus_volume_db(3))
-var musicSound = db2linear(AudioServer.get_bus_volume_db(4))
+var ambientVolume = db2linear(AudioServer.get_bus_volume_db(3))
+var musicVolume = db2linear(AudioServer.get_bus_volume_db(4))
 
 #######################
 ##Getters and Setters##
@@ -28,15 +28,15 @@ func set_dialogueVolume(newDialogueVolume):
 	dialogueVolume = newDialogueVolume
 	return dialogueVolume
 	
-func get_ambientSound(): return ambientSound
-func set_ambientSound(newAmbientSound):
-	ambientSound = newAmbientSound
-	return ambientSound
+func get_ambientVolume(): return ambientVolume
+func set_ambientVolume(newAmbientSound):
+	ambientVolume = newAmbientSound
+	return ambientVolume
 
-func get_musicSound(): return musicSound
-func set_musicSound(newMusicSound):
-	musicSound = newMusicSound
-	return musicSound
+func get_musicVolume(): return musicVolume
+func set_musicvolume(newMusicSound):
+	musicVolume = newMusicSound
+	return musicVolume
 
 
 ####################
@@ -65,8 +65,8 @@ func change_dialogue_volume(value):
 	
 func change_ambient_volume(value):
 	AudioServer.set_bus_volume_db(3, linear2db(value))
-	ambientSound = value
+	ambientVolume = value
 
 func change_music_volume(value):
 	AudioServer.set_bus_volume_db(4, linear2db(value))
-	musicSound = value
+	musicVolume = value
