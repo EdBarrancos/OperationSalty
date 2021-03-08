@@ -132,6 +132,8 @@ script = ExtResource( 13 )
 modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 12 )
 
+[node name="StarDialogue" type="AudioStreamPlayer" parent="Stars"]
+
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 17
@@ -218,6 +220,7 @@ anims/Jump = SubResource( 5 )
 anims/Running = SubResource( 6 )
 anims/StarSkyFadeIn = SubResource( 7 )
 anims/StarSkyFadeOut = SubResource( 8 )
+[connection signal="finished" from="Stars/StarDialogue" to="Stars" method="_on_StarDialogue_finished"]
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]

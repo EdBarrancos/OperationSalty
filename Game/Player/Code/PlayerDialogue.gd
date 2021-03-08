@@ -17,6 +17,14 @@ func _ready():
 	dialogueLines = list_files_in_directory(pathToDialogueLines)
 	dialogueTimer.start()
 	
+func pause_dialogue():
+	dialogueAudio.set_stream_paused(true)
+	dialogueTimer.set_paused(true)
+
+func restart_dialogue(): 
+	dialogueAudio.set_stream_paused(false)
+	dialogueTimer.set_paused(false)
+	
 	
 func _on_DialogueTimer_timeout():
 	if dialogueLines.size():

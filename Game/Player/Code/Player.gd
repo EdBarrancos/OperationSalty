@@ -40,6 +40,7 @@ onready var soundEffects = $PlayerSoundEffects
 onready var countDownTimer = $CountDown/TimerLabel
 onready var animationPlayer = $AnimationPlayer
 onready var stars = $Stars
+onready var playerDialogue = $PlayerDialogue
 
 ################################
 ##Variable Setters and Getters##
@@ -219,6 +220,8 @@ func _on_FireplaceLeft_body_exited(body):
 	
 func _on_Timer_timeout(): emit_signal("defeat")
 
+func get_crown_position(): return get_parent().get_crown_quadrant()
+
 ############
 ##Movement##
 ############
@@ -324,9 +327,11 @@ func land():
 	
 func star_interaction_start():
 	state.set_state(PlayerFireplaceState.new())
+	playerDialogue.pause_dialogue()
 	stars.start_interaction(fireplaceLocation)
 	
 func star_interaction_finished():
+	playerDialogue.restart_dialogue()
 	state.set_state(PlayerIdleState.new())
 
 
