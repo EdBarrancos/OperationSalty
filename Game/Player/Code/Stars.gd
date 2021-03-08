@@ -14,10 +14,10 @@ onready var rightDialogueOneOrTwo
 onready var rightDialogueZero
 onready var rightDialogueThree
 
-onready var middleDialogueZero
-onready var middleDialogueOne
-onready var middleDialogueTwo
-onready var middleDialogueThree
+onready var middleDialogueZero = "res://Player/Sound/Star Dialogue/MiddleDialogue/middleZero.wav"
+onready var middleDialogueOne = "res://Player/Sound/Star Dialogue/MiddleDialogue/middleOne.wav"
+onready var middleDialogueTwo = "res://Player/Sound/Star Dialogue/MiddleDialogue/middleTwo.wav"
+onready var middleDialogueThree = "res://Player/Sound/Star Dialogue/MiddleDialogue/middleThree.wav"
 
 
 onready var audio = $StarDialogue
@@ -25,10 +25,11 @@ onready var audio = $StarDialogue
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	crownPosition = get_parent().get_crown_position()
+	pass
 
 
 func start_interaction(fireplaceLocation):
+	crownPosition = get_parent().get_crown_position()
 	fireplace = fireplaceLocation
 	get_parent().play_starSkyFadeIn_animation()
 

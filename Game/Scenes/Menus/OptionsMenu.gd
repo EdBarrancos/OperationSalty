@@ -30,6 +30,8 @@ func _ready():
 
 
 
+
+
 func fix_antialiasing(button):
 	button.get_font("font").font_data.antialiased = false
 	button.get_font("font").use_filter = true

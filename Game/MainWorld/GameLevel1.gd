@@ -16,6 +16,9 @@ func _ready():
 	crown.set_global_position(positionC)
 	crown.start_animation()
 	
+	
+func _process(delta):
+	if Input.is_action_just_pressed("BACK"): get_parent().switch_to_main_menu(self)
 
 func _on_Crown_body_entered(body):
 	if body == player: get_parent().switch_to_victory(self)
@@ -25,4 +28,5 @@ func _on_Player_defeat(): get_parent().switch_to_defeat(self)
 
 func is_player(object): return object == player
 
-func get_crown_quadrant(): return positionValue
+func get_crown_quadrant():
+	return positionValue

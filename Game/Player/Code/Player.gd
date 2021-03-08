@@ -220,7 +220,8 @@ func _on_FireplaceLeft_body_exited(body):
 	
 func _on_Timer_timeout(): emit_signal("defeat")
 
-func get_crown_position(): return get_parent().get_crown_quadrant()
+func get_crown_position(): 
+	return get_parent().get_crown_quadrant()
 
 ############
 ##Movement##

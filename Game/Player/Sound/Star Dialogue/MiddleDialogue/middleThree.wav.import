@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/middleThree.wav-ab9b052a635323b3792492df34c7cdad.sample"
+
+[deps]
+
+source_file="res://Player/Sound/Star Dialogue/MiddleDialogue/middleThree.wav"
+dest_files=[ "res://.import/middleThree.wav-ab9b052a635323b3792492df34c7cdad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
