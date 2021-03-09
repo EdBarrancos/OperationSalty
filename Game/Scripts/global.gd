@@ -7,6 +7,8 @@ var dialogueVolume = db2linear(AudioServer.get_bus_volume_db(2))
 var ambientVolume = db2linear(AudioServer.get_bus_volume_db(3))
 var musicVolume = db2linear(AudioServer.get_bus_volume_db(4))
 
+var hasSeenIntro = false
+
 #######################
 ##Getters and Setters##
 #######################
@@ -37,6 +39,11 @@ func get_musicVolume(): return musicVolume
 func set_musicvolume(newMusicSound):
 	musicVolume = newMusicSound
 	return musicVolume
+	
+func get_hasSeen_intro(): return hasSeenIntro
+func set_hasSeen_intro(newHasSeenIntro):
+	hasSeenIntro = newHasSeenIntro
+	return hasSeenIntro
 
 
 ####################
@@ -45,6 +52,13 @@ func set_musicvolume(newMusicSound):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+	
+	
+func save():
+	pass
+	
+func load():
 	pass
 	
 ###################

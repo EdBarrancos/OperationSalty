@@ -240,6 +240,7 @@ texture = ExtResource( 11 )
 script = ExtResource( 9 )
 
 [node name="Dialogue" type="AudioStreamPlayer2D" parent="PlayerDialogue"]
+volume_db = 13.0
 bus = "Dialogue"
 
 [node name="DialogueTimer" type="Timer" parent="PlayerDialogue"]

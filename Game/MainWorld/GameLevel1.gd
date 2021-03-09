@@ -11,7 +11,7 @@ export var nbrOfCrownPositions = 4
 
 func _ready():
 	random.randomize()
-	positionValue = int(random.randf_range(0, nbrOfCrownPositions - 1))
+	positionValue = int(random.randf_range(0, nbrOfCrownPositions))
 	var positionC = crownPositions.get_quadrant_position(positionValue)
 	crown.set_global_position(positionC)
 	crown.start_animation()

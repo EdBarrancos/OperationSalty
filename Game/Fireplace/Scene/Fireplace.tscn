@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fireplace/Art/Fireplace.png" type="Texture" id=1]
 [ext_resource path="res://Fireplace/Sound/FireplaceSoundEffect.wav" type="AudioStream" id=2]
@@ -9,11 +9,30 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 45.8412, 11.2989 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "fireplaceAnimation"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FireplaceSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
 [node name="Fireplace" type="Area2D"]
 script = ExtResource( 3 )
 
 [node name="FireplaceSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 4
+frame = 1
 
 [node name="FireplaceCollider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -36,5 +55,9 @@ texture = ExtResource( 5 )
 texture_scale = 0.43
 color = Color( 0.933333, 0.662745, 0.0235294, 1 )
 energy = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fireplaceAnimation"
+anims/fireplaceAnimation = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_Fireplace_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Fireplace_body_exited"]

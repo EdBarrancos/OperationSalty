@@ -496,13 +496,13 @@ __meta__ = {
 }
 
 [node name="FireplaceLeft" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1336.34, -456.446 )
+position = Vector2( -1336.48, -455.931 )
 
 [node name="FireplaceRight" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1053.01, -587.242 )
+position = Vector2( 1053.85, -584.245 )
 
 [node name="FireplaceMid" parent="." instance=ExtResource( 3 )]
-position = Vector2( -0.541595, 70.2124 )
+position = Vector2( -0.37474, 71.7141 )
 
 [node name="TileBeauty" type="TileMap" parent="."]
 tile_set = SubResource( 49 )
@@ -514,7 +514,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -88.8986, 61.1007 )
+position = Vector2( -89.3992, 61.6013 )
 
 [node name="Crown" parent="." instance=ExtResource( 4 )]
 position = Vector2( 951.779, -158.26 )

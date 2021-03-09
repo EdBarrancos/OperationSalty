@@ -5,11 +5,18 @@ onready var defeatScene = load("res://Scenes/Defeat.tscn")
 onready var mainWorld = load("res://MainWorld/GameLevel1.tscn")
 onready var mainMenu = load("res://Scenes/Menus/MainMenu.tscn")
 onready var optionsMenu = load("res://Scenes/Menus/OptionsMenu.tscn")
+onready var initialCutscene = load("res://Scenes/Initial.tscn")
 
 onready var music = $Music
 
 func _ready():
 	pass
+	
+func pause_music():
+	music.playing = false
+	
+func play_music():
+	music.playing = true
 	
 
 
@@ -39,4 +46,7 @@ func switch_to_defeat(currentScene):
 	
 func switch_to_options_menu(currentScene):
 	switch_scenes(currentScene, optionsMenu)
+	
+func switch_to_initial(currentScene):
+	switch_scenes(currentScene, initialCutscene)
 	

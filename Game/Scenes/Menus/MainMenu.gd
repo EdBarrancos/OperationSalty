@@ -24,7 +24,7 @@ func fix_antialiasing(button):
 	button.get_font("font").use_filter = false
 
 
-func _on_Play_pressed(): get_parent().switch_to_main_world(self)
+func _on_Play_pressed(): get_parent().switch_to_initial(self)
 
 
 func _on_Options_pressed(): get_parent().switch_to_options_menu(self)
