@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/starEffect.wav-c9bb019ca88bd160ad2eaea0a6ab192a.sample"
+
+[deps]
+
+source_file="res://Player/Sound/starEffect.wav"
+dest_files=[ "res://.import/starEffect.wav-c9bb019ca88bd160ad2eaea0a6ab192a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

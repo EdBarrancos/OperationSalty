@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Art/PlayerSpriteSheet.png" type="Texture" id=1]
 [ext_resource path="res://Player/Code/Player.gd" type="Script" id=2]
@@ -13,16 +13,19 @@
 [ext_resource path="res://Player/Art/CountdownLight.png" type="Texture" id=11]
 [ext_resource path="res://Player/Art/StarySky.png" type="Texture" id=12]
 [ext_resource path="res://Player/Code/Stars.gd" type="Script" id=13]
+[ext_resource path="res://Player/Sound/starEffect.wav" type="AudioStream" id=14]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5.8148, 13.9035 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "Fall"
+[sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -38,7 +41,7 @@ tracks/0/keys = {
 "values": [ 15, 16 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -54,7 +57,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.03
 step = 0.01
 tracks/0/type = "value"
@@ -70,7 +73,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.8
 loop = true
 step = 0.06
@@ -87,7 +90,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
@@ -102,7 +105,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.658824 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Stars/StarSkySprite:modulate")
@@ -133,6 +136,41 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 12 )
 
 [node name="StarDialogue" type="AudioStreamPlayer" parent="Stars"]
+stream = ExtResource( 14 )
+volume_db = -10.4
+
+[node name="ColorRect" type="ColorRect" parent="Stars"]
+margin_left = -158.0
+margin_top = 28.0
+margin_right = 159.0
+margin_bottom = 88.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Stars"]
+margin_left = -158.0
+margin_top = 28.0
+margin_right = 159.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "->Travel to the Stone Warrior Statue"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="Stars"]
+position = Vector2( 9.53674e-07, 58.3919 )
+scale = Vector2( 9.875, 3.6875 )
+texture = ExtResource( 11 )
+energy = 7.74
+
+[node name="Timer" type="Timer" parent="Stars"]
+wait_time = 4.0
+one_shot = true
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -140,7 +178,7 @@ hframes = 17
 frame = 14
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 current = true
@@ -181,7 +219,7 @@ margin_left = 94.0
 margin_top = -85.1081
 margin_right = 158.0
 margin_bottom = -57.1081
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 clip_text = true
@@ -214,13 +252,14 @@ energy = 1.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Fall = SubResource( 3 )
-anims/Idle = SubResource( 4 )
-anims/Jump = SubResource( 5 )
-anims/Running = SubResource( 6 )
-anims/StarSkyFadeIn = SubResource( 7 )
-anims/StarSkyFadeOut = SubResource( 8 )
+anims/Fall = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Jump = SubResource( 6 )
+anims/Running = SubResource( 7 )
+anims/StarSkyFadeIn = SubResource( 8 )
+anims/StarSkyFadeOut = SubResource( 9 )
 [connection signal="finished" from="Stars/StarDialogue" to="Stars" method="_on_StarDialogue_finished"]
+[connection signal="timeout" from="Stars/Timer" to="Stars" method="_on_Timer_timeout"]
 [connection signal="timeout" from="CountDown/TimerLabel/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="PlayerDialogue/Dialogue" to="PlayerDialogue" method="_on_Dialogue_finished"]
 [connection signal="timeout" from="PlayerDialogue/DialogueTimer" to="PlayerDialogue" method="_on_DialogueTimer_timeout"]

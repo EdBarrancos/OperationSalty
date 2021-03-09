@@ -29,7 +29,8 @@ func _ready():
 	musicSlide.set_value(Global.get_musicVolume())
 
 
-
+func _process(delta):
+	if Input.is_action_just_pressed("BACK"): get_parent().switch_to_main_menu(self)
 
 
 func fix_antialiasing(button):
