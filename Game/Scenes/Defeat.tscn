@@ -1,11 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Defeat.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/LosingCutscene.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Defeat.gd" type="Script" id=3]
+[ext_resource path="res://Assets/fire.wav" type="AudioStream" id=4]
 
 [node name="Defeat" type="Node2D"]
+script = ExtResource( 3 )
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 648.859, 306.043 )
-scale = Vector2( 6.87982, 5.51521 )
-texture = ExtResource( 1 )
-flip_v = true
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+
+[node name="Narrator" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = 17.0
+bus = "Dialogue"
+
+[node name="Fire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+bus = "SoundEffects"
+[connection signal="finished" from="Narrator" to="." method="_on_Narrator_finished"]

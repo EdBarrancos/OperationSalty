@@ -17,7 +17,7 @@ zoom = Vector2( 0.25, 0.25 )
 
 [node name="Narrator" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = 10.0
+volume_db = 17.0
 bus = "Dialogue"
 
 [node name="BellSounds" type="AudioStreamPlayer" parent="."]

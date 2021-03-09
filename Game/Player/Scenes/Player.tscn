@@ -229,7 +229,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="CountDown/TimerLabel"]
-wait_time = 120.0
+wait_time = 100.0
 
 [node name="Light2D" type="Light2D" parent="CountDown"]
 position = Vector2( 126, -71.1081 )
@@ -244,7 +244,7 @@ volume_db = 13.0
 bus = "Dialogue"
 
 [node name="DialogueTimer" type="Timer" parent="PlayerDialogue"]
-wait_time = 3.0
+wait_time = 20.0
 one_shot = true
 
 [node name="Light2D" type="Light2D" parent="."]
