@@ -20,5 +20,6 @@ func _ready():
 func _on_Narrator_finished():
 	bellSounds.playing = false
 	get_parent().play_music()
+	Global.set_hasSeen_intro(true)
 	get_parent().switch_to_main_world(self)
 	

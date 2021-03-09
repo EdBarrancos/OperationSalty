@@ -9,6 +9,8 @@ var musicVolume = db2linear(AudioServer.get_bus_volume_db(4))
 
 var hasSeenIntro = false
 
+
+var debug = false
 #######################
 ##Getters and Setters##
 #######################
@@ -54,16 +56,58 @@ func set_hasSeen_intro(newHasSeenIntro):
 func _ready():
 	pass
 	
+func save_dict():
+	var save_dict = {
+		"masterVolume" : masterVolume,
+		"soundEffectVolume" : soundEffectVolume,
+		"dialogueVolume" : dialogueVolume,
+		"ambientVolume" : ambientVolume,
+		"musicVolume" : musicVolume,
+		"hasSeenIntro" : hasSeenIntro,
+	}
+	return save_dict
+
+func save_game():
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	if debug:
+		print("Saveing the Game:")
+		print(save_dict())
+	save_game.store_line(to_json(save_dict()))
+	save_game.close()
 	
-func save():
-	pass
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return
+	save_game.open("user://savegame.save", File.READ)
 	
-func load():
-	pass
+	var variable_data = parse_json(save_game.get_line())
+	
+	if debug:
+		print("loading the game")
+	for i in variable_data:
+		if debug:
+			print(i)
+			print(variable_data[i])
+		set(i, variable_data[i])
+	
+	save_game.close()
+	
+	#Should have thought about this
+	update_all_volumes()
+	
 	
 ###################
 ##Volume Handling##
 ###################
+
+func update_all_volumes():
+	change_master_volume(masterVolume)
+	change_ambient_volume(ambientVolume)
+	change_dialogue_volume(dialogueVolume)
+	change_music_volume(musicVolume)
+	change_soundEffects_volume(soundEffectVolume)
 
 func change_master_volume(value):
 	AudioServer.set_bus_volume_db(0, linear2db(value))

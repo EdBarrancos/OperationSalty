@@ -15,6 +15,7 @@ func _ready():
 	var positionC = crownPositions.get_quadrant_position(positionValue)
 	crown.set_global_position(positionC)
 	crown.start_animation()
+
 	
 	
 func _process(delta):

@@ -10,7 +10,7 @@ onready var initialCutscene = load("res://Scenes/Initial.tscn")
 onready var music = $Music
 
 func _ready():
-	pass
+	Global.load_game()
 	
 func pause_music():
 	music.playing = false
@@ -33,12 +33,14 @@ func add_scene_instance(scene):
 ##############
 
 func switch_to_main_world(currentScene):
+	Global.save_game()
 	switch_scenes(currentScene, mainWorld)
 	
 func switch_to_victory(currentScene):
 	switch_scenes(currentScene, victoryScene)
 	
 func switch_to_main_menu(currentScene):
+	Global.save_game()
 	switch_scenes(currentScene, mainMenu)
 	
 func switch_to_defeat(currentScene):

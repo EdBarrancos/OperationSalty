@@ -4,7 +4,6 @@ onready var camera = $Camera2D
 onready var playButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Play
 onready var optionsButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Options
 onready var exitButton = $Menu/VBoxContainer/HBoxContainer/MarginContainer/Exit
-onready var label = $Label
 
 func _ready():
 	fix_antialiasing(playButton)
@@ -24,7 +23,9 @@ func fix_antialiasing(button):
 	button.get_font("font").use_filter = false
 
 
-func _on_Play_pressed(): get_parent().switch_to_initial(self)
+func _on_Play_pressed(): 
+	if Global.get_hasSeen_intro(): get_parent().switch_to_main_world(self)
+	else: get_parent().switch_to_initial(self)
 
 
 func _on_Options_pressed(): get_parent().switch_to_options_menu(self)
